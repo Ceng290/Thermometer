@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8A13C4ED-0AB9-4231-8C73-137DBBEC9068}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>thermometer</RootNamespace>
+    <AssemblyName>thermometer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\threshold.mdf" />
+    <Content Include="App_Data\threshold_log.ldf">
+      <DependentUpon>threshold.mdf</DependentUpon>
+    </Content>
+    <Content Include="css\StyleSheet1.css" />
+    <Content Include="img\icon_loading_75x75.gif" />
+    <Content Include="js\googleVisualization\googleLoad.js" />
+    <Content Include="js\jquery\jquery-1.11.1.js" />
+    <Content Include="js\UI\demos.css" />
+    <Content Include="js\UI\themes\base\images\animated-overlay.gif" />
+    <Content Include="js\UI\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="js\UI\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="js\UI\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="js\UI\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="js\UI\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="js\UI\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="js\UI\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="js\UI\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="js\UI\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="js\UI\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="js\UI\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="js\UI\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="js\UI\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="js\UI\themes\base\jquery.ui.accordion.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.all.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.base.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.button.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.core.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.dialog.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.menu.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.resizable.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.selectable.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.slider.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.spinner.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.tabs.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.theme.css" />
+    <Content Include="js\UI\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="js\UI\ui\i18n\jquery-ui-i18n.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-af.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-ar-DZ.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-ar.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-az.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-be.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-bg.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-bs.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-ca.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-cs.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-cy-GB.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-da.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-de.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-el.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-en-AU.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-en-GB.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-en-NZ.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-eo.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-es.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-et.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-eu.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-fa.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-fi.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-fo.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-fr-CA.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-fr-CH.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-fr.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-gl.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-he.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-hi.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-hr.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-hu.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-hy.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-id.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-is.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-it.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-ja.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-ka.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-kk.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-km.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-ko.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-ky.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-lb.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-lt.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-lv.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-mk.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-ml.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-ms.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-nb.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-nl-BE.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-nl.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-nn.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-no.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-pl.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-pt-BR.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-pt.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-rm.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-ro.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-ru.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-sk.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-sl.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-sq.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-sr-SR.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-sr.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-sv.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-ta.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-th.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-tj.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-tr.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-uk.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-vi.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-zh-HK.js" />
+    <Content Include="js\UI\ui\i18n\jquery.ui.datepicker-zh-TW.js" />
+    <Content Include="js\UI\ui\jquery-ui.custom.js" />
+    <Content Include="js\UI\ui\jquery.ui.accordion.js" />
+    <Content Include="js\UI\ui\jquery.ui.autocomplete.js" />
+    <Content Include="js\UI\ui\jquery.ui.button.js" />
+    <Content Include="js\UI\ui\jquery.ui.core.js" />
+    <Content Include="js\UI\ui\jquery.ui.datepicker.js" />
+    <Content Include="js\UI\ui\jquery.ui.dialog.js" />
+    <Content Include="js\UI\ui\jquery.ui.draggable.js" />
+    <Content Include="js\UI\ui\jquery.ui.droppable.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-blind.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-bounce.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-clip.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-drop.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-explode.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-fade.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-fold.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-highlight.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-pulsate.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-scale.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-shake.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-slide.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect-transfer.js" />
+    <Content Include="js\UI\ui\jquery.ui.effect.js" />
+    <Content Include="js\UI\ui\jquery.ui.menu.js" />
+    <Content Include="js\UI\ui\jquery.ui.mouse.js" />
+    <Content Include="js\UI\ui\jquery.ui.position.js" />
+    <Content Include="js\UI\ui\jquery.ui.progressbar.js" />
+    <Content Include="js\UI\ui\jquery.ui.resizable.js" />
+    <Content Include="js\UI\ui\jquery.ui.selectable.js" />
+    <Content Include="js\UI\ui\jquery.ui.slider.js" />
+    <Content Include="js\UI\ui\jquery.ui.sortable.js" />
+    <Content Include="js\UI\ui\jquery.ui.spinner.js" />
+    <Content Include="js\UI\ui\jquery.ui.tabs.js" />
+    <Content Include="js\UI\ui\jquery.ui.tooltip.js" />
+    <Content Include="js\UI\ui\jquery.ui.widget.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery-ui-i18n.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-af.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-ar-DZ.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-ar.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-az.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-be.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-bg.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-bs.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-ca.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-cs.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-cy-GB.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-da.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-de.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-el.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-en-AU.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-en-GB.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-en-NZ.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-eo.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-es.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-et.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-eu.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-fa.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-fi.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-fo.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-fr-CA.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-fr-CH.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-fr.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-gl.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-he.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-hi.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-hr.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-hu.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-hy.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-id.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-is.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-it.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-ja.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-ka.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-kk.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-km.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-ko.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-ky.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-lb.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-lt.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-lv.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-mk.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-ml.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-ms.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-nb.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-nl-BE.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-nl.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-nn.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-no.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-pl.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-pt-BR.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-pt.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-rm.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-ro.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-ru.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-sk.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-sl.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-sq.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-sr-SR.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-sr.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-sv.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-ta.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-th.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-tj.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-tr.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-uk.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-vi.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-zh-CN.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-zh-HK.min.js" />
+    <Content Include="js\UI\ui\minified\i18n\jquery.ui.datepicker-zh-TW.min.js" />
+    <Content Include="js\UI\ui\minified\jquery-ui.custom.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.accordion.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.autocomplete.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.button.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.core.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.datepicker.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.dialog.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.draggable.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.droppable.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-blind.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-bounce.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-clip.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-drop.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-explode.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-fade.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-fold.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-highlight.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-pulsate.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-scale.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-shake.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-slide.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect-transfer.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.effect.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.menu.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.mouse.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.position.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.progressbar.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.resizable.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.selectable.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.slider.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.sortable.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.spinner.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.tabs.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.tooltip.min.js" />
+    <Content Include="js\UI\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="js\UI\ui\jQuery - Shortcut.lnk" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="js\thermometer\thermometer.js" />
+    <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>34562</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:34562/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
